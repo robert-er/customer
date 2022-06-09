@@ -1,0 +1,29 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  datasource:
+    url: ${customer.datasource.url}
+    username: ${customer.datasource.username}
+    password: ${customer.datasource.password}
+    driver-class-name: ${customer.datasource.driver-class-name}
+  jpa:
+    properties:
+      hibernate:
+        dialect: ${customer.jpa.properties.hibernate.dialect}
+    database: ${customer.jpa.database}
+    show-sql: ${customer.jpa.show-sql}
+    hibernate:
+      ddl-auto: ${customer.jpa.hibernate.ddl-auto}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+info:
+  app:
+    name: "Customer"
+    version: "0.0.1-SNAPSHOT"
+    profile: ${spring.profiles.active}
+  serverInfo:
+    port: ${server.port}
